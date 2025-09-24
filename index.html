@@ -12,9 +12,26 @@
       transition: max-height 0.4s ease-out;
     }
     .collapsible.open .collapsible-content {
-      max-height: 1000px;
+      max-height: 2000px;
       transition: max-height 0.6s ease-in;
     }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 9999px;
+      padding: 0.4rem 0.6rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .carousel-btn:hover {
+      background: white;
+    }
+    .carousel-btn.left { left: 0.5rem; }
+    .carousel-btn.right { right: 0.5rem; }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
@@ -31,7 +48,7 @@
   <main class="max-w-4xl mx-auto px-6 pb-16">
     <section class="grid md:grid-cols-2 gap-8 items-center py-8">
       <div class="flex flex-col items-start">
-        <img src="IMG_1095.HEIC" alt="Peter Mackenzie" class="w-48 h-48 rounded-full shadow-lg border mb-4 object-cover">
+        <img src="IMG_1095.HEIC" alt="Peter Mackenzie" class="w-40 h-40 rounded-full shadow-lg border mb-4 object-cover">
         <h2 class="text-3xl font-extrabold leading-tight">Hi, I'm Peter.</h2>
         <p class="mt-3 text-slate-600">
           I'm a first-year Physics student at Concordia University. I build robotics and DIY automation projects using Raspberry Pi, Arduino, computer vision, and custom-designed parts.
@@ -61,7 +78,7 @@
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Arduino</span>
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">OpenCV</span>
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Onshape</span>
-        <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Project Planning</span>
+        <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Project planning and execution</span>
       </div>
     </section>
 
@@ -70,39 +87,44 @@
         + See other projects & things I'm passionate about
       </button>
       <div id="otherProjects" class="collapsible mt-4">
-        <div class="collapsible-content grid gap-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="bg-white p-4 rounded-xl shadow border">
-              <div class="relative">
-                <img id="carousel-img-1" src="IMG_0275.HEIC" alt="Discbine Project" class="rounded-lg mb-2 w-full">
-                <div id="caption-1" class="text-xs text-slate-500 mb-1">Caption 1</div>
-                <button onclick="prevImage(1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">‹</button>
-                <button onclick="nextImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">›</button>
-              </div>
-              <h3 class="font-semibold">Repairing Farm Equipment</h3>
-              <p class="text-sm text-slate-600">
-                I bought two broken discbines and mixed and matched parts to make a functioning one.
-              </p>
-            </div>
+        <div class="collapsible-content grid gap-6 md:grid-cols-2">
 
-            <div class="bg-white p-4 rounded-xl shadow border">
-              <div class="relative">
-                <img id="carousel-img-2" src="IMG_1435.HEIC" alt="Tractor Project" class="rounded-lg mb-2 w-full">
-                <div id="caption-2" class="text-xs text-slate-500 mb-1">Shifter arm broke — had to open the tractor and fix from the inside.</div>
-                <button onclick="prevImage(2)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">‹</button>
-                <button onclick="nextImage(2)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">›</button>
-              </div>
-              <h3 class="font-semibold">Fun with Old Tractors</h3>
+          <!-- Project 1: Discbine carousel -->
+          <div class="bg-white p-4 rounded-xl shadow border">
+            <div class="relative">
+              <img id="carousel-img-1" src="IMG_0275.HEIC" alt="Discbine Project" class="rounded-lg mb-2 w-full object-contain">
+              <button onclick="prevImage(1)" class="carousel-btn left">‹</button>
+              <button onclick="nextImage(1)" class="carousel-btn right">›</button>
             </div>
+            <h3 class="font-semibold">Repairing farm equipment!</h3>
+            <p class="text-sm text-slate-600">Two broken discbines turned into one working one.</p>
           </div>
 
-          <div class="bg-white p-4 rounded-xl shadow border md:col-span-2">
-            <img src="IMG_1300.HEIC" alt="DIY Hot Tub" class="rounded-lg mb-2 w-full">
+          <!-- Project 2: Tractor carousel -->
+          <div class="bg-white p-4 rounded-xl shadow border">
+            <div class="relative">
+              <img id="carousel-img-2" src="IMG_1435.HEIC" alt="Tractor Project" class="rounded-lg mb-2 w-full object-contain">
+              <button onclick="prevImage(2)" class="carousel-btn left">‹</button>
+              <button onclick="nextImage(2)" class="carousel-btn right">›</button>
+            </div>
+            <h3 class="font-semibold">Fun with old tractors</h3>
+            <p class="text-sm text-slate-600">Shifter arm replacement, clutch swap, and (literally) driving the wheels off.</p>
+          </div>
+
+          <!-- Project 3: Hot Tub -->
+          <div class="bg-white p-4 rounded-xl shadow border">
+            <img src="IMG_1300.HEIC" alt="Hot Tub" class="rounded-lg mb-2 w-full object-contain">
             <h3 class="font-semibold">DIY Hot Tub</h3>
-            <p class="text-sm text-slate-600">
-              Built by me and my friends in an afternoon.
-            </p>
+            <p class="text-sm text-slate-600">Built by me and my friends in an afternoon.</p>
           </div>
+
+          <!-- Project 4: Placeholder -->
+          <div class="bg-white p-4 rounded-xl shadow border">
+            <img src="IMG_1271.HEIC" alt="Placeholder Project" class="rounded-lg mb-2 w-full object-contain">
+            <h3 class="font-semibold">Another project</h3>
+            <p class="text-sm text-slate-600">Short description of another project.</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -135,16 +157,11 @@
       2: ["IMG_1435.HEIC", "IMG_1212.HEIC", "IMG_1271.HEIC"]
     };
 
-    const captions = {
-      1: ["Caption 1", "Caption 2"],
-      2: ["Shifter arm broke — had to open the tractor and fix from the inside.", "Literally drove the wheels off it.", "Replacing the clutch."]
-    };
-
     const currentIndex = { 1: 0, 2: 0 };
 
     function showImage(projectId, index) {
-      document.getElementById(`carousel-img-${projectId}`).src = projectImages[projectId][index];
-      document.getElementById(`caption-${projectId}`).textContent = captions[projectId][index];
+      const imgElement = document.getElementById(`carousel-img-${projectId}`);
+      imgElement.src = projectImages[projectId][index];
     }
 
     function nextImage(projectId) {
@@ -153,7 +170,9 @@
     }
 
     function prevImage(projectId) {
-      currentIndex[projectId] = (currentIndex[projectId] - 1 + projectImages[projectId].length) % projectImages[projectId].length;
+      currentIndex[projectId] =
+        (currentIndex[projectId] - 1 + projectImages[projectId].length) %
+        projectImages[projectId].length;
       showImage(projectId, currentIndex[projectId]);
     }
   </script>
