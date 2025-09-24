@@ -36,7 +36,7 @@
     <section class="grid md:grid-cols-2 gap-8 items-center py-8">
       <div class="flex flex-col items-start">
         <!-- Profile picture -->
-        <img src="your-photo.jpg" alt="Peter Mackenzie" class="w-32 h-32 rounded-full shadow-lg border mb-4">
+        <img src="IMG_1095.HEIC" alt="Peter Mackenzie" class="w-32 h-32 rounded-full shadow-lg border mb-4">
         <h2 class="text-3xl font-extrabold leading-tight">Hi, I'm Peter.</h2>
         <p class="mt-3 text-slate-600">
           I'm a first-year Physics student at Concordia University. I build robotics and DIY automation projects using Raspberry Pi, Arduino, computer vision, and custom-designed parts.
@@ -67,7 +67,7 @@
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Arduino</span>
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">OpenCV</span>
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Onshape</span>
-        <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Odrive</span>
+        <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Project planning and execution</span>
       </div>
     </section>
 
@@ -98,14 +98,35 @@
             </p>
           </div>
 
-          <!-- Project 2: Single image, no arrows -->
+          !-- Project 1: With image carousel -->
           <div class="bg-white p-4 rounded-xl shadow border">
-            <img src="IMG_1271.HEIC" alt="Project 2" class="rounded-lg mb-2 w-full">
-            <h3 class="font-semibold">Fixing broken stuff!</h3>
+            <div class="relative">
+              <img id="carousel-img-2" src="IMG_1435.HEIC" alt="Discbine Project" class="rounded-lg mb-2 w-full">
+              <!-- Left arrow -->
+              <button onclick="prevImage(1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">
+                ‹
+              </button>
+              <!-- Right arrow -->
+              <button onclick="nextImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">
+                ›
+              </button>
+            </div>
+            <h3 class="font-semibold">Fun with old tractors</h3>
             <p class="text-sm text-slate-600">
-              I enjoy repairing equipment, taking things apart, and putting them back together.
+              Image 1: I ripped off the shifter arm and had to open the tractor and fix it from the inside out. Image 2: Replacing the clutch. Image 3: Literally drove the wheels off it.
             </p>
           </div>
+
+
+          <!-- Project 2: Single image, no arrows -->
+          <div class="bg-white p-4 rounded-xl shadow border">
+            <img src="IMG_1300.HEIC" alt="Project 2" class="rounded-lg mb-2 w-full">
+            <h3 class="font-semibold">Diy hot tub</h3>
+            <p class="text-sm text-slate-600">
+              Built by me and my friends in and afternoon
+            </p>
+          </div>
+
 
         </div>
       </div>
@@ -140,6 +161,7 @@
     // Image carousel logic for project 1
     const projectImages = {
       1: ["IMG_0275.HEIC", "IMG_0284 2.HEIC"]
+      2: ["IMG_1435.HEIC", "IMG_1271.HEIC", "IMG_1212.HEIC"]
     };
 
     const currentIndex = { 1: 0 };
