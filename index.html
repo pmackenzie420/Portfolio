@@ -67,7 +67,7 @@
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Arduino</span>
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">OpenCV</span>
         <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Onshape</span>
-        <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Project planning and execution</span>
+        <span class="px-3 py-1 rounded-full border text-sm bg-white shadow">Project Planning</span>
       </div>
     </section>
 
@@ -78,55 +78,43 @@
       </button>
       <div id="otherProjects" class="collapsible mt-4">
         <div class="collapsible-content grid gap-6 md:grid-cols-2">
-          
-          <!-- Project 1: With image carousel -->
+
+          <!-- Project 1: Discbine Repair (carousel) -->
           <div class="bg-white p-4 rounded-xl shadow border">
             <div class="relative">
               <img id="carousel-img-1" src="IMG_0275.HEIC" alt="Discbine Project" class="rounded-lg mb-2 w-full">
-              <!-- Left arrow -->
-              <button onclick="prevImage(1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">
-                ‹
-              </button>
-              <!-- Right arrow -->
-              <button onclick="nextImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">
-                ›
-              </button>
+              <button onclick="prevImage(1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">‹</button>
+              <button onclick="nextImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">›</button>
             </div>
-            <h3 class="font-semibold">Repairing farm equipment!</h3>
+            <h3 class="font-semibold">Repairing Farm Equipment</h3>
             <p class="text-sm text-slate-600">
               I bought two broken discbines and mixed and matched parts to make a functioning one.
             </p>
           </div>
 
-          !-- Project 1: With image carousel -->
+          <!-- Project 2: Tractor Repair (carousel) -->
           <div class="bg-white p-4 rounded-xl shadow border">
             <div class="relative">
-              <img id="carousel-img-2" src="IMG_1435.HEIC" alt="Discbine Project" class="rounded-lg mb-2 w-full">
-              <!-- Left arrow -->
-              <button onclick="prevImage(1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">
-                ‹
-              </button>
-              <!-- Right arrow -->
-              <button onclick="nextImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">
-                ›
-              </button>
+              <img id="carousel-img-2" src="IMG_1435.HEIC" alt="Tractor Project" class="rounded-lg mb-2 w-full">
+              <button onclick="prevImage(2)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">‹</button>
+              <button onclick="nextImage(2)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full px-2">›</button>
             </div>
-            <h3 class="font-semibold">Fun with old tractors</h3>
+            <h3 class="font-semibold">Fun with Old Tractors</h3>
             <p class="text-sm text-slate-600">
-              Image 1: I ripped off the shifter arm and had to open the tractor and fix it from the inside out. Image 2: Replacing the clutch. Image 3: Literally drove the wheels off it.
+              Image 1: Shifter arm broke — had to open the tractor and fix from the inside.  
+              Image 2: Replacing the clutch.  
+              Image 3: Literally drove the wheels off it.
             </p>
           </div>
 
-
-          <!-- Project 2: Single image, no arrows -->
+          <!-- Project 3: Single image -->
           <div class="bg-white p-4 rounded-xl shadow border">
-            <img src="IMG_1300.HEIC" alt="Project 2" class="rounded-lg mb-2 w-full">
-            <h3 class="font-semibold">Diy hot tub</h3>
+            <img src="IMG_1300.HEIC" alt="DIY Hot Tub" class="rounded-lg mb-2 w-full">
+            <h3 class="font-semibold">DIY Hot Tub</h3>
             <p class="text-sm text-slate-600">
-              Built by me and my friends in and afternoon
+              Built by me and my friends in an afternoon.
             </p>
           </div>
-
 
         </div>
       </div>
@@ -158,13 +146,13 @@
         : '+ See other projects & things I\'m passionate about';
     });
 
-    // Image carousel logic for project 1
+    // Image carousel logic
     const projectImages = {
-      1: ["IMG_0275.HEIC", "IMG_0284 2.HEIC"]
+      1: ["IMG_0275.HEIC", "IMG_0284 2.HEIC"],
       2: ["IMG_1435.HEIC", "IMG_1271.HEIC", "IMG_1212.HEIC"]
     };
 
-    const currentIndex = { 1: 0 };
+    const currentIndex = { 1: 0, 2: 0 };
 
     function showImage(projectId, index) {
       const imgElement = document.getElementById(`carousel-img-${projectId}`);
